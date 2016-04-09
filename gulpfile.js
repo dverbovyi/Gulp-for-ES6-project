@@ -7,6 +7,7 @@ var browserify = require('browserify'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
     browserSync = require('browser-sync');
 
 /* pathConfig*/
@@ -22,6 +23,9 @@ gulp.task('js', function () {
         .transform("babelify", {presets: ["es2015"]})
         .bundle()
         .pipe(source('bundle.js'))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./build/'))
         .pipe(browserSync.reload({stream: true}));
 });
