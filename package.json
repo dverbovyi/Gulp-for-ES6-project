@@ -1,5 +1,5 @@
 {
-  "name": "ES6 with Gulp, Sass, Babel & Browserify",
+  "name": "gulpfile-es6-browserify",
   "version": "1.0.0",
   "description": "Gulpfile for ES6 project",
   "scripts": {
